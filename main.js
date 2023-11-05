@@ -19,4 +19,9 @@ function getComputerChoice() {
   return choice;
 }
 
+//create a function playRound that accepts the computerSelection and the playerSelection as parameters
+//make the playerSelection case insensitive
+//create a variable winner
+//if player === computer return no winner, else if player > computer return players wins, else return computer wins
+
 
