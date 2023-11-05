@@ -9,13 +9,14 @@ function getComputerChoice() {
   let choice;
 
   if (num === 1) {
-    choice = "Rock";
+    choice = "rock";
   } else if (num === 2) {
-    choice = "Paper";
+    choice = "paper";
   } else if (num === 3) {
-    choice = "Scissors";
+    choice = "scissors";
   }
 
+  return choice;
 }
 
 
