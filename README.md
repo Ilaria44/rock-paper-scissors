@@ -1,2 +1,2 @@
-# rock-paper-scissors
-Third project for the Odin Project curriculum
+# Rock Paper Scissors Game
+This is my third project in the Odin Project curriculum.
