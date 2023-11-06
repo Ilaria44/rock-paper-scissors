@@ -24,9 +24,9 @@ function getComputerChoice() {
 //create a variable winner
 //if player === computer return no winner, else if player > computer return players wins, else return computer wins
 
-function playRound(computerSelection, playerSelection) {
-  playerSelection = playerSelection.toLowerCase();
-  
+function playRound(playerSelection, computerSelection) {
+  playerSelection = playerSelection.toLowerCase().trim();
+
   let winnerMessage;
 
   if (playerSelection === computerSelection) {
@@ -42,7 +42,7 @@ function playRound(computerSelection, playerSelection) {
   } else {
     winnerMessage = "Don't try to cheat! Please, insert a valid value.";
   }
-  console.log(winnerMessage);
+
   return winnerMessage;
 }
 
@@ -52,3 +52,23 @@ function playRound(computerSelection, playerSelection) {
 //keep score
 //console log a message with the result of the game
 
+function game() {
+  let score = 0;
+  
+  for (let step = 1; step < 6; step++) {
+    let round = playRound(prompt("Round " + step +": make your choice!"), getComputerChoice());
+
+    console.log(round);
+
+    if(round === "Congrats! What a lucky round!") {
+    score++;
+    } else if (round === "Don't try to cheat! Please, insert a valid value." || round === "It's a tie! Try again.") {
+    step--;
+    }
+  }
+  
+
+
+}
+
+game();
