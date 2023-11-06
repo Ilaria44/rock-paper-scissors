@@ -34,11 +34,11 @@ function playRound(computerSelection, playerSelection) {
   } else if ((playerSelection === "scissors" && computerSelection === "paper")
   || (playerSelection === "paper" && computerSelection === "rock") 
   || (playerSelection === "rock" && computerSelection === "scissors")) {
-    winnerMessage = "Congrats! You won!";  
+    winnerMessage = "Congrats! What a lucky round!";  
   } else if ((playerSelection === "scissors" && computerSelection === "rock") 
   || (playerSelection === "paper" && computerSelection === "scissors")
   || (playerSelection === "rock" && computerSelection === "paper")) {
-    winnerMessage = "Oh no! You lost!";
+    winnerMessage = "Oh no! You lost the round!";
   } else {
     winnerMessage = "Don't try to cheat! Please, insert a valid value.";
   }
