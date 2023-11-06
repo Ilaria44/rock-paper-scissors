@@ -38,11 +38,17 @@ function playRound(computerSelection, playerSelection) {
   } else if ((playerSelection === "scissors" && computerSelection === "rock") 
   || (playerSelection === "paper" && computerSelection === "scissors")
   || (playerSelection === "rock" && computerSelection === "paper")) {
-    winnerMessage = "Oh no! You lost the round!";
+    winnerMessage = "Oh no! You lost this round!";
   } else {
     winnerMessage = "Don't try to cheat! Please, insert a valid value.";
   }
-
+  console.log(winnerMessage);
   return winnerMessage;
 }
+
+
+//create a game function
+//run the playRound function 5 times asking for prompt to the user and inserting the getComputerChoice function
+//keep score
+//console log a message with the result of the game
 
