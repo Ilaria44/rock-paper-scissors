@@ -24,4 +24,25 @@ function getComputerChoice() {
 //create a variable winner
 //if player === computer return no winner, else if player > computer return players wins, else return computer wins
 
+function playRound(computerSelection, playerSelection) {
+  playerSelection = playerSelection.toLowerCase();
+  
+  let winnerMessage;
+
+  if (playerSelection === computerSelection) {
+    winnerMessage = "It's a tie! Try again.";
+  } else if ((playerSelection === "scissors" && computerSelection === "paper")
+  || (playerSelection === "paper" && computerSelection === "rock") 
+  || (playerSelection === "rock" && computerSelection === "scissors")) {
+    winnerMessage = "Congrats! You won!";  
+  } else if ((playerSelection === "scissors" && computerSelection === "rock") 
+  || (playerSelection === "paper" && computerSelection === "scissors")
+  || (playerSelection === "rock" && computerSelection === "paper")) {
+    winnerMessage = "Oh no! You lost!";
+  } else {
+    winnerMessage = "Don't try to cheat! Please, insert a valid value.";
+  }
+
+  return winnerMessage;
+}
 
