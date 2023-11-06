@@ -54,9 +54,10 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
   let score = 0;
+  let finalMessage;
   
   for (let step = 1; step < 6; step++) {
-    let round = playRound(prompt("Round " + step +": make your choice!"), getComputerChoice());
+    let round = playRound(prompt("Round " + step +": make your choice! Will it be rock, paper or scissors?"), getComputerChoice());
 
     console.log(round);
 
@@ -67,7 +68,13 @@ function game() {
     }
   }
   
+  if (score >= 3) {
+    finalMessage = "Hip Hip Hurray! You're the winner of this game!";
+  } else {
+    finalMessage = "I'm sorry, today is not your lucky day! You can try again to challenge me!"
+  }
 
+  console.log(finalMessage);
 
 }
 
