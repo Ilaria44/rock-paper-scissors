@@ -1,4 +1,3 @@
-
 //create a function getComputerChoice
 //create a variable num and assign to it a random number between 1 and 3
 //if 1 return rock, else if 2 return paper, else if 3 return scissors
@@ -24,26 +23,31 @@ function getComputerChoice() {
 //create a variable winner
 //if player === computer return no winner, else if player > computer return players wins, else return computer wins
 
+let playerWinsRound = "Congrats! What a lucky round!";
+let computerWinsRound = "Oh no! You lost this round!";
+let tieRound = "It's a tie! Try again.";
+let invalidRound = "Don't try to cheat! Please, insert a valid value.";
+
 function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase().trim();
 
-  let winnerMessage;
+  let roundWinner;
 
   if (playerSelection === computerSelection) {
-    winnerMessage = "It's a tie! Try again.";
+    roundWinner = tieRound;
   } else if ((playerSelection === "scissors" && computerSelection === "paper")
   || (playerSelection === "paper" && computerSelection === "rock") 
   || (playerSelection === "rock" && computerSelection === "scissors")) {
-    winnerMessage = "Congrats! What a lucky round!";  
+    roundWinner = playerWinsRound;  
   } else if ((playerSelection === "scissors" && computerSelection === "rock") 
   || (playerSelection === "paper" && computerSelection === "scissors")
   || (playerSelection === "rock" && computerSelection === "paper")) {
-    winnerMessage = "Oh no! You lost this round!";
+    roundWinner = computerWinsRound;
   } else {
-    winnerMessage = "Don't try to cheat! Please, insert a valid value.";
+    roundWinner = invalidRound;
   }
 
-  return winnerMessage;
+  return roundWinner;
 }
 
 
@@ -77,5 +81,7 @@ function game() {
   console.log(finalMessage);
 
 }
+
+
 
 game();
