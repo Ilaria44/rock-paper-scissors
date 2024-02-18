@@ -58,27 +58,27 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
   let score = 0;
-  let finalMessage;
+  let gameWinner;
   
   for (let step = 1; step < 6; step++) {
     let round = playRound(prompt("Round " + step +": make your choice! Will it be rock, paper or scissors?"), getComputerChoice());
 
     console.log(round);
 
-    if(round === "Congrats! What a lucky round!") {
+    if(round === playerWinsRound) {
     score++;
-    } else if (round === "Don't try to cheat! Please, insert a valid value." || round === "It's a tie! Try again.") {
+    } else if (round === invalidRound || round === tieRound) {
     step--;
     }
   }
   
   if (score >= 3) {
-    finalMessage = "Hip Hip Hurray! You're the winner of this game!";
+    gameWinner = "Hip Hip Hurray! You're the winner of this game!";
   } else {
-    finalMessage = "I'm sorry, today is not your lucky day! You can try again to challenge me!"
+    gameWinner = "I'm sorry, today is not your lucky day! You can try again to challenge me!"
   }
 
-  console.log(finalMessage);
+  console.log(gameWinner);
 
 }
 
