@@ -1,40 +1,75 @@
-//create a function getComputerChoice
-//create a variable num and assign to it a random number between 1 and 3
-//if 1 return rock, else if 2 return paper, else if 3 return scissors
+let computerScore = 0;
+let playerScore = 0;
+
+let computerChoice = "";
+let playerChoice = "";
+
+let playerButtons = document.querySelector(".buttons-container.player");
+
+//create a function getComputerChoice, random number between 1 and 3 equals to computer choice + make button ui change only after player selection
+
 
 function getComputerChoice() {
+  let computerButtons = document.querySelector(".buttons-container.computer");
+
   let num = Math.floor(Math.random() * 3 + 1);
 
-  let choice;
-
   if (num === 1) {
-    choice = "rock";
+    computerChoice = "rock";
+    //computerButtons.children[0].classList.add("active");
   } else if (num === 2) {
-    choice = "paper";
+    computerChoice = "paper";
+    //computerButtons.children[1].classList.add("active");
   } else if (num === 3) {
-    choice = "scissors";
+    computerChoice = "scissors";
+   // computerButtons.children[2].classList.add("active");
   }
 
-  return choice;
+
+  playerButtons.addEventListener("click", function changeButtons (e) {
+    if(e.target.tagName === "BUTTON") {
+      if (num === 1) {
+        computerButtons.children[0].classList.add("active");
+      } else if (num === 2) {
+        computerButtons.children[1].classList.add("active");
+      } else if (num === 3) {
+        computerButtons.children[2].classList.add("active");
+      }
+    }
+
+  })
+
+
 }
 
-//create a function playRound that accepts the computerSelection and the playerSelection as parameters
-//make the playerSelection case insensitive
-//create a variable winner
-//if player === computer return no winner, else if player > computer return players wins, else return computer wins
+
+//get player choice based on which button is clicked + create clicked button ui change + ui change for 
+
+function getPlayerChoice () {
+
+
+playerButtons.addEventListener("click", function getSelection (e) {
+  playerChoice = e.target.id;
+
+  e.target.classList.add("active");
+  playerButtons.removeEventListener("click", getSelection);
+})
+
+}
+
+//play round by getting both player and computer choice
 
 let playerWinsRound = "Congrats! What a lucky round!";
 let computerWinsRound = "Oh no! You lost this round!";
 let tieRound = "It's a tie! Try again.";
-let invalidRound = "Don't try to cheat! Please, insert a valid value.";
+
 
 function playRound(playerSelection, computerSelection) {
-  playerSelection = playerSelection.toLowerCase().trim();
 
   let roundWinner;
 
   if (playerSelection === computerSelection) {
-    roundWinner = tieRound;
+    roundWinner = "tieRound";
   } else if ((playerSelection === "scissors" && computerSelection === "paper")
   || (playerSelection === "paper" && computerSelection === "rock") 
   || (playerSelection === "rock" && computerSelection === "scissors")) {
@@ -43,13 +78,12 @@ function playRound(playerSelection, computerSelection) {
   || (playerSelection === "paper" && computerSelection === "scissors")
   || (playerSelection === "rock" && computerSelection === "paper")) {
     roundWinner = computerWinsRound;
-  } else {
-    roundWinner = invalidRound;
   }
 
   return roundWinner;
 }
 
+playRound(getPlayerChoice(), getComputerChoice());
 
 //create a game function
 //run the playRound function 5 times asking for prompt to the user and inserting the getComputerChoice function
@@ -84,4 +118,4 @@ function game() {
 
 
 
-game();
+//game();
