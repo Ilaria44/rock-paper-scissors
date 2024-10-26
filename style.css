@@ -35,8 +35,9 @@ h1 {
   margin-bottom: 30px;
   color: rgb(15, 15, 40);
   font-size: 30px;
-  background-color: rgb(191, 230, 255);
+  background-color: rgba(191, 230, 255, 0.7);
 }
+
 
 .content {
   margin-bottom: 40px;
@@ -92,5 +93,38 @@ button {
   background: radial-gradient(rgba(160, 188, 221, 0.8), rgba(6, 47, 136, 0.8));
   border: 3px solid rgb(0, 26, 62);
   color: rgb(0, 18, 43);
-  
+
 }
+
+.result-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#result {
+  width: 50%;
+}
+
+#player-score, #computer-score {
+  width: 25%;
+  font-size: 14px;
+}
+
+.result-container div {
+  border: 2px dotted rgb(15, 15, 40);
+  height: 60px;
+  margin: 10px 5px;
+  background-color: rgba(191, 230, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-container p {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+
