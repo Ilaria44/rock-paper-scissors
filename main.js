@@ -36,7 +36,6 @@ function getComputerChoice() {
 
 
 function playRound (e) {
-  playerButtons.addEventListener("click", playRound);
 
   if(e.target.tagName === "BUTTON") {
     getComputerChoice();
@@ -120,7 +119,6 @@ function playRound (e) {
 
   }
 }
-
 
 
 
