@@ -54,12 +54,13 @@ h1 {
 }
 
 button {
-  padding: 10px 18px;
+  padding: 10px 0px;
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 1.5px;
   border-radius: 20px;
   background-color: rgb(255, 242, 228);
+  width: 105px;
 }
 
 .player button {
@@ -125,6 +126,15 @@ button {
   font-weight: bold;
   margin: 0;
   padding: 0;
+  color: rgb(15, 15, 40);
+}
+
+.content > button {
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 5px 8px;
+  margin-top: 15px;
+  background-color: white;
 }
 
 
