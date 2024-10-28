@@ -4,6 +4,7 @@ let playerScore = 0;
 let playerButtons = document.querySelector(".buttons-container.player");
 let computerButtons = document.querySelector(".buttons-container.computer");
 let resultDiv = document.querySelector("#result");
+let nextRoundBtn = document.querySelector(".content > button");
 
 let computerChoice;
 let playerChoice;
@@ -99,9 +100,8 @@ function playRound (e) {
     playerScoreMessage.textContent = "Your Score: " + playerScore; 
     computerScoreMessage.textContent = "Computer Score: " + computerScore; 
 
-    let nextRoundBtn = document.createElement("button");
-    nextRoundBtn.textContent = "Next Round";
-    resultDiv.parentElement.parentElement.appendChild(nextRoundBtn);
+  
+    nextRoundBtn.classList.remove("hidden");
 
     nextRoundBtn.addEventListener("click", () => {
       Array.from(playerButtons.children).forEach(child => {
@@ -113,11 +113,21 @@ function playRound (e) {
       });
 
       roundWinnerPara.textContent = "";
+
+      nextRoundBtn.classList.add("hidden");
+
+      playerButtons.addEventListener("click", playRound);
+
+      
     });
 
-    return playerScore, computerScore;
+    
+    
 
   }
+
+
+  return playerScore, computerScore;
 }
 
 
@@ -128,10 +138,8 @@ function playRound (e) {
 function game() {
   let gameWinner;
   
- // while(computerScore < 5 && playerScore < 5) {
   playerButtons.addEventListener("click", playRound);
 
-  //}
 
 }
 
