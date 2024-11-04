@@ -129,7 +129,7 @@ button {
   color: rgb(15, 15, 40);
 }
 
-.content > button {
+.content > button, #result > button {
   font-size: 12px;
   border-radius: 5px;
   padding: 5px 8px;
@@ -142,3 +142,21 @@ button {
   visibility: hidden;
 }
 
+#result.big-message {
+  position: absolute;
+  top: 160px;
+  width: 80%;
+  height: 350px;
+  background-color: rgba(191, 230, 255, 1);
+
+  display: flex;
+  flex-direction: column;
+
+}
+
+#result.big-message p {
+  font-size: 40px;
+  font-weight: bold;
+  text-decoration: underline;
+  color: rgb(166, 0, 72);
+}

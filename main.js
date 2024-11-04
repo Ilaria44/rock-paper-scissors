@@ -1,20 +1,28 @@
+//variable declarations + DOM elements selection
+
 let computerScore = 0;
 let playerScore = 0;
+let computerChoice;
+let playerChoice;
 
 let playerButtons = document.querySelector(".buttons-container.player");
 let computerButtons = document.querySelector(".buttons-container.computer");
 let resultDiv = document.querySelector("#result");
 let nextRoundBtn = document.querySelector(".content > button");
 
-let computerChoice;
-let playerChoice;
+let playerRoundMessage = "Congrats! What a lucky round!";
+let computerRoundMessage = "Oh no! You lost this round!";
+let tieRoundMessage = "It's a tie! Try again.";
 
+let playerWinsMessage = "You are the winner!";
+let computerWinsMessage = "You've lost to the Computer!";
 
 let playerScoreMessage = document.querySelector("#player-score p");
 playerScoreMessage.textContent = "Your Score: " + playerScore; 
 
 let computerScoreMessage = document.querySelector("#computer-score p");
 computerScoreMessage.textContent = "Computer Score: " + computerScore; 
+
 
 //get computer choice by random number between 1 and 3
 
@@ -32,13 +40,24 @@ function getComputerChoice() {
 }
 
 
+/* function resetInterface () {
+  Array.from(playerButtons.children).forEach(child => {
+    child.classList.remove("active");
+  });
 
-//play round by taking in both computer and player choices + change buttons ui + return result message
+  Array.from(computerButtons.children).forEach(child => {
+    child.classList.remove("active");
+  });
+
+  roundWinnerPara.textContent = "";
+
+  nextRoundBtn.classList.add("hidden"); 
+} */
 
 
-function playRound (e) {
+function playGame (e) {
 
-  if(e.target.tagName === "BUTTON") {
+  if(e.target.tagName === "BUTTON") {  
     getComputerChoice();
 
     switch (computerChoice) {
@@ -58,13 +77,11 @@ function playRound (e) {
     playerChoice = e.target.id;
     e.target.classList.add("active");
 
-    playerButtons.removeEventListener("click", playRound);
+    playerButtons.removeEventListener("click", playGame);
 
-    let playerRoundMessage = "Congrats! What a lucky round!";
-    let computerRoundMessage = "Oh no! You lost this round!";
-    let tieRoundMessage = "It's a tie! Try again.";
 
-    let roundWinner;
+
+    //get round winner + show round message + refresh score
 
     if (playerChoice === computerChoice) {
       roundWinner = "tie";
@@ -100,49 +117,86 @@ function playRound (e) {
     playerScoreMessage.textContent = "Your Score: " + playerScore; 
     computerScoreMessage.textContent = "Computer Score: " + computerScore; 
 
-  
-    nextRoundBtn.classList.remove("hidden");
 
-    nextRoundBtn.addEventListener("click", () => {
-      Array.from(playerButtons.children).forEach(child => {
-        child.classList.remove("active");
-      });
 
-      Array.from(computerButtons.children).forEach(child => {
-        child.classList.remove("active");
-      });
+    //check if someone has won, if so display message and add button to restart another game, else add button to play next round
 
-      roundWinnerPara.textContent = "";
-
-      nextRoundBtn.classList.add("hidden");
-
-      playerButtons.addEventListener("click", playRound);
-
+    if(playerScore === 5 || computerScore === 5) {
       
-    });
+      if(playerScore === 5) {
+        roundWinnerPara.textContent = playerWinsMessage.toUpperCase();
+
+      } else if (computerScore === 5) {
+        roundWinnerPara.textContent = computerWinsMessage.toUpperCase();
+      }
+
+      roundWinnerPara.parentElement.classList.add("big-message");
+
+      let newGameBtn = document.createElement("button");
+      newGameBtn.textContent = "Try Again";
+      roundWinnerPara.parentElement.appendChild(newGameBtn);
+      
+      newGameBtn.addEventListener("click", () => {
+        playerScore = 0;
+        computerScore = 0;
+
+        roundWinnerPara.parentElement.classList.remove("big-message");
+
+        Array.from(playerButtons.children).forEach(child => {
+          child.classList.remove("active");
+        });
+      
+        Array.from(computerButtons.children).forEach(child => {
+          child.classList.remove("active");
+        });
+      
+        roundWinnerPara.textContent = "";
+      
+        nextRoundBtn.classList.add("hidden"); 
+
+        playerScoreMessage.textContent = "Your Score: " + playerScore; 
+        computerScoreMessage.textContent = "Computer Score: " + computerScore; 
+
+        newGameBtn.remove();
+        
+
+        playerButtons.addEventListener("click", playGame);
+
+        
+
+      })
+     
+
 
     
-    
+    } else {
+      nextRoundBtn.classList.remove("hidden");
 
-  }
+      nextRoundBtn.addEventListener("click", () => {
+        Array.from(playerButtons.children).forEach(child => {
+          child.classList.remove("active");
+        });
 
+        Array.from(computerButtons.children).forEach(child => {
+          child.classList.remove("active");
+        });
 
-  return playerScore, computerScore;
+        roundWinnerPara.textContent = "";
+
+        nextRoundBtn.classList.add("hidden");
+
+        playerButtons.addEventListener("click", playGame);
+
+        
+      });
+
+    }
+
+  } 
+
 }
 
 
 
-
-//create game to play rounds until player or computer reach score 5
-
-function game() {
-  let gameWinner;
-  
-  playerButtons.addEventListener("click", playRound);
-
-
-}
-
-
-game();
+playerButtons.addEventListener("click", playGame);
   
