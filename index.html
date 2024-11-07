@@ -3,10 +3,41 @@
 <head>
 <title>Rock Paper Scissors</title>
 <meta charset="utf-8">
-<script src="main.js"></script>
+<link href="style.css" rel="stylesheet">
 </head>
 
 <body>
 <h1>Rock Paper Scissors</h1>
+<div class="content">
+  <p>Come play the game with me! Which one will be your choice?</p>
+
+  <div class="buttons-container player">
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+  </div>
+
+  <p>Your opponent (the Mighty Computer) choice:</p>
+
+  <div class="buttons-container computer">
+    <button>Rock</button>
+    <button>Paper</button>
+    <button>Scissors</button>
+  </div>
+
+  <div class="result-container">
+    <div id="player-score">
+      <p></p>
+    </div>
+    <div id="result"></div>
+    <div id="computer-score">
+      <p></p>
+    </div>
+  </div>
+
+  <button class="hidden">Next Round</button>
+</div>
+
+<script src="main.js"></script>
 </body>
 </html>

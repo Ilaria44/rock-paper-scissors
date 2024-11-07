@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightcyan;
+}
+
+div, h1 {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+h1, .content {
+  border: 2px dotted rgb(15, 15, 40);
+  padding: 15px 60px;
+  width: 100%;
+}
+
+
+h1 {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  color: rgb(15, 15, 40);
+  font-size: 30px;
+  background-color: rgba(191, 230, 255, 0.7);
+}
+
+
+.content {
+  margin-bottom: 40px;
+  font-size: 16px;
+  background-color: bisque;
+  flex: 1;
+  
+}
+
+.buttons-container {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button {
+  padding: 10px 0px;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  border-radius: 20px;
+  background-color: rgb(255, 242, 228);
+  width: 105px;
+}
+
+.player button {
+  color: rgb(51, 0, 62);
+  border: 2px solid rgba(51, 0, 62, 0.7);
+}
+
+.player button:hover {
+  background: radial-gradient(rgba(255, 221, 255, 0.8), rgba(182, 70, 207, 0.8));
+  border: 2px solid rgba(90, 25, 105, 0.7);
+}
+
+.player button.active {
+  background: radial-gradient(rgba(221, 160, 221, 0.8), rgba(112, 6, 136, 0.8));
+  border: 3px solid rgb(51, 0, 62);
+  color: rgb(20, 0, 24);
+  
+}
+
+.computer button {
+  color: rgb(0, 26, 62);
+  border: 2px solid rgba(0, 26, 62, 0.75);
+}
+
+.computer button:hover {
+  background: radial-gradient(rgba(213, 231, 255, 0.8), rgba(54, 121, 193, 0.8));
+  border: 2px solid rgba(25, 46, 105, 0.75);
+}
+
+.computer button.active {
+  background: radial-gradient(rgba(160, 188, 221, 0.8), rgba(6, 47, 136, 0.8));
+  border: 3px solid rgb(0, 26, 62);
+  color: rgb(0, 18, 43);
+
+}
+
+.result-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#result {
+  width: 50%;
+}
+
+#player-score, #computer-score {
+  width: 25%;
+  font-size: 14px;
+}
+
+.result-container div {
+  border: 2px dotted rgb(15, 15, 40);
+  height: 60px;
+  margin: 10px 5px;
+  background-color: rgba(191, 230, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-container p {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  color: rgb(15, 15, 40);
+}
+
+.content > button, #result > button {
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 5px 8px;
+  margin-top: 15px;
+  background-color: white;
+}
+
+
+.hidden {
+  visibility: hidden;
+}
+
+#result.big-message {
+  position: absolute;
+  top: 160px;
+  width: 80%;
+  height: 350px;
+  background-color: rgba(191, 230, 255, 1);
+
+  display: flex;
+  flex-direction: column;
+
+}
+
+#result.big-message p {
+  font-size: 40px;
+  font-weight: bold;
+  text-decoration: underline;
+  color: rgb(166, 0, 72);
+}
